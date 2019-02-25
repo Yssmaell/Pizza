@@ -1,0 +1,7 @@
+C:\Users\b049589\source\repos\Pizza\Pizza\bin\Debug\Pizza.exe.config
+C:\Users\b049589\source\repos\Pizza\Pizza\bin\Debug\Pizza.exe
+C:\Users\b049589\source\repos\Pizza\Pizza\bin\Debug\Pizza.pdb
+C:\Users\b049589\source\repos\Pizza\Pizza\obj\Debug\Pizza.csprojResolveAssemblyReference.cache
+C:\Users\b049589\source\repos\Pizza\Pizza\obj\Debug\Pizza.csproj.CoreCompileInputs.cache
+C:\Users\b049589\source\repos\Pizza\Pizza\obj\Debug\Pizza.exe
+C:\Users\b049589\source\repos\Pizza\Pizza\obj\Debug\Pizza.pdb
