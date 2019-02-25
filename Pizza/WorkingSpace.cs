@@ -45,37 +45,52 @@ namespace Pizza
         {            
             for (int y = 1; y <= Pizza.Colls; y++)
             {
-                for (int x = 1; x <= Pizza.Rows; x++)
+                for (int x = 2; x <= Pizza.Rows; x++)
                 {
-                    if ((x) * (y) <= Pizza.MaxCellsPerSlide)
-                    {
-                        Debug.WriteLine("Submatriceando con X : " + x + " y Y : " + y);
-                        var aux = ViewAsNByM2(Pizza.PizzaCells, x , y);
-                        var puntaje = 0;
-                        foreach (var items in aux)
-                        {
-                            var vQuery = from char item in items where item != '\0' select item;
-                            puntaje += vQuery.Count();
-                            //Debug.WriteLine("Send to debug output.");                            
-                            foreach (var cells in items)
-                            {                                
-                                if (cells != '\0')
-                                {
-                                    var vIndex = CoordinatesOf(items, cells);
-                                    items[vIndex.Item1, vIndex.Item2] = '\0';
-                                    //Debug.WriteLine("Send to debug output.");
-                                    Debug.WriteLine("Pizza comienza en: " + (vIndex.Item1) + " y " + (vIndex.Item2));
-                                }                                
-                            }
-                            Debug.WriteLine("");
-                        }
-                        Debug.WriteLine("Score: " + puntaje);
-                        Debug.WriteLine("");
-                        Debug.WriteLine("");
-                    }
+                    Debug.WriteLine("Submatriceando con X : " + x + " y Y : " + y);
+                    FragmentarPizza(x, y, Pizza.PizzaCells);
                 }
             }
             Debugger.Break();
+        }
+
+        private static void ReFragmentar(char[,] vMatriz)
+        {
+            for (int y = 1; y <= vMatriz.GetLength(1); y++)
+            {
+                for (int x = 2; x <= vMatriz.GetLength(0); x++)
+                {
+                    Debug.WriteLine("Subsubmatriceando con X : " + x + " y Y : " + y);
+                    FragmentarPizza(x, y, vMatriz);
+                }
+            }
+        }
+
+        private static void FragmentarPizza(int CantFilas, int CantidadCol, char[,] vMatriz)
+        {
+            if ((CantFilas) * (CantidadCol) <= Pizza.MaxCellsPerSlide)
+            {                
+                var aux = ViewAsNByM2(vMatriz, CantFilas, CantidadCol);
+                var puntaje = 0;
+                foreach (var items in aux)
+                {
+                    var vQuery = from char item in items where item != '\0' select item;
+                    puntaje += vQuery.Count();             
+                    foreach (var cells in items)
+                    {
+                        if (cells != '\0')
+                        {
+                            var vIndex = CoordinatesOf(items, cells);
+                            items[vIndex.Item1, vIndex.Item2] = '\0';
+                            Debug.WriteLine("Pizza comienza en: " + (vIndex.Item1) + " y " + (vIndex.Item2));
+                        }
+                    }
+                    Debug.WriteLine("");
+                }
+                Debug.WriteLine("Score: " + puntaje);
+                Debug.WriteLine("");
+                Debug.WriteLine("");
+            }
         }
 
         public static IEnumerable<T[,]> ViewAsNByM2<T>(this T[,] values, int n, int m)
@@ -89,20 +104,22 @@ namespace Pizza
                 var vDesde = 0;
                 for (int column = 0; column < columns; column++)
                 {
-                    var matrix = new T[height, width];                    
+                    var matrix = new T[height, width];
+                    var vNewMatrix = new char[height, width];
                     for (int i = 0; i < n; i++)
                     {
                         Array.ConstrainedCopy(
                             values,
                             (row * n + i) * width + column * m + vDesde,
                             matrix,
-                            //i * m,
                             (row * n + i) * width + column * m + vDesde,
-                            m); 
-                        
+                            m);
+
                     }
                     if (ValidarSlide(matrix))
                     {
+                   //     vNewMatrix = RestarMatrices(values, matrix);
+                 //       ReFragmentar(vNewMatrix);
                         yield return matrix;
                     }
                     else
@@ -119,6 +136,20 @@ namespace Pizza
                     }
                 }
             }
+        }
+
+        private static char[,] RestarMatrices<T>(this T[,] vM1, T[,] vM2)
+        {
+            int height = vM1.GetLength(0), width = vM1.GetLength(1);
+            var vReturn = new char[height, width];
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    vReturn[i, j] = (char)(Convert.ToInt32(vM1[i, j]) - Convert.ToInt32(vM2[i, j]));
+                }           
+            }
+            return vReturn;
         }
 
         public static Tuple<int, int> CoordinatesOf<T>(this T[,] matrix, T value)
