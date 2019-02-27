@@ -148,7 +148,7 @@ namespace Pizza
                 Debug.WriteLine("Comienzo nuevo");
                 ViewAsNByM(vMatriz, CantFilas, CantidadCol);
                 FusionarM(lMatricesValidazAux);
-                lMatricesValidaz = lMatricesValidazAux;
+                //lMatricesValidaz = lMatricesValidazAux;
                 foreach (var items in lMatricesValidaz)
                 {
                     var vQuery = from char item in items where item != '\0' select item;
