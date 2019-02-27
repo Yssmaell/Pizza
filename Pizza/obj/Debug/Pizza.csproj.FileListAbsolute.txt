@@ -11,3 +11,4 @@ C:\Users\Ysmael\Desktop\Pizza\Pizza\Pizza\bin\Debug\Pizza.pdb
 C:\Users\Ysmael\Desktop\Pizza\Pizza\Pizza\obj\Debug\Pizza.csproj.CoreCompileInputs.cache
 C:\Users\Ysmael\Desktop\Pizza\Pizza\Pizza\obj\Debug\Pizza.exe
 C:\Users\Ysmael\Desktop\Pizza\Pizza\Pizza\obj\Debug\Pizza.pdb
+C:\Users\Ysmael\Desktop\Pizza\Pizza\Pizza\obj\Debug\Pizza.csprojAssemblyReference.cache
