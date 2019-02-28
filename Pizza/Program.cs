@@ -14,8 +14,12 @@ namespace Pizza
         {
             WorkingSpace.InputData(@"C:\a_example.in");
             WorkingSpace.CutPizza();
+            //WorkingSpace.InputData(@"C:\b_small.in");
+            //WorkingSpace.CutPizza();
+            //WorkingSpace.InputData(@"C:\c_medium.in");
+            //WorkingSpace.CutPizza();
+
             Debugger.Break();
-            Thread.Sleep(6000);
         }
     }
 }

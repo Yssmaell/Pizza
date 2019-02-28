@@ -1,0 +1,7 @@
+C:\Users\b049589\source\repos\Pizza\PhotoSlideShow\bin\Debug\PhotoSlideShow.exe.config
+C:\Users\b049589\source\repos\Pizza\PhotoSlideShow\bin\Debug\PhotoSlideShow.exe
+C:\Users\b049589\source\repos\Pizza\PhotoSlideShow\bin\Debug\PhotoSlideShow.pdb
+C:\Users\b049589\source\repos\Pizza\PhotoSlideShow\obj\Debug\PhotoSlideShow.csprojResolveAssemblyReference.cache
+C:\Users\b049589\source\repos\Pizza\PhotoSlideShow\obj\Debug\PhotoSlideShow.csproj.CoreCompileInputs.cache
+C:\Users\b049589\source\repos\Pizza\PhotoSlideShow\obj\Debug\PhotoSlideShow.exe
+C:\Users\b049589\source\repos\Pizza\PhotoSlideShow\obj\Debug\PhotoSlideShow.pdb
